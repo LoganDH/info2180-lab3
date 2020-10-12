@@ -1,8 +1,16 @@
 "use strict";
 
+var boardDivs;
+
 window.onload = function() {
-    var boardDivs = document.getElementById('board').getElementsByTagName('div');
-    for(var i=0; i<boardDivs.length; i++){
-        boardDivs[i].className += 'square';
-    }
+
+    boardDivs = Array.from(document.getElementById("board").getElementsByTagName("div"));
+
+    boardDivs.forEach(element => element.classList.add("square"));
+
+    boardDivs.forEach(function(element) {
+        element.addEventListener("mouseover", function(e) {e.target.classList.add("hover");});
+        element.addEventListener("mouseout", function(e) {e.target.classList.remove("hover");});
+      });
+
 }
